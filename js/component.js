@@ -92,7 +92,7 @@ export class Component {
         // priority against ephemeral updates that have happend since them...
         Object.entries(this.queuedUpdates).forEach(([updateKey, updateValue]) => {
             Object.entries(diff).forEach(([diffKey, diffValue]) => {
-                if (diffKey.startsWith(updateValue)) {
+                if (updateValue !== '' && diffKey.startsWith(updateValue)) {
                     delete diff[diffKey]
                 }
             })
